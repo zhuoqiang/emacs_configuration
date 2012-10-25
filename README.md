@@ -1,4 +1,4 @@
-Emacs is known to be one of the most powerful editor in the world. Yet its power is hidden in the absence of proper configuration.
+Emacs is known to be (one of?) the most powerful editor in the world. Yet its power is hidden in the absence of proper configuration.
 
 Emacs configuration is hard and fun. After quite a while hard time fighting against elisp I finally have some fun with my Emacs and I just open source my personal Emacs configuration hoping it's helpful to you.
 

@@ -249,3 +249,5 @@
 (global-set-key [(f2)] 'bc-previous)
 (global-set-key [(shift f2)] 'bc-next)
 (global-set-key [(meta f2)] 'bc-list)
+
+(global-set-key "\C-ci" 'qiang-ido-imenu-symbol)

@@ -5,8 +5,10 @@
 
 ;; (setq debug-on-error t)
 
-(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
-(setq exec-path (append exec-path '("/usr/local/bin")))
+(when (not (equal window-system 'w32))
+  'proc(
+        (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+        (setq exec-path (append exec-path '("/usr/local/bin")))))
 
 ;; add load path
 (unless (boundp 'user-emacs-directory)

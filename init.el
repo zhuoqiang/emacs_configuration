@@ -156,6 +156,12 @@
 
 (global-set-key (kbd "M-k") 'qiang-copy-line)
 
+;; fix server unsafe error under windows
+(require 'server)
+(when (and (>= emacs-major-version 23)
+           (equal window-system 'w32))
+  (defun server-ensure-safe-dir (dir) "Noop" t))
+
 (if window-system (server-mode 1))
 
 ;; Emacs-List Mode

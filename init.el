@@ -38,9 +38,9 @@
 (global-set-key (kbd "<C-wheel-up>") 'text-scale-increase)
 (global-set-key (kbd "<C-wheel-down>") 'text-scale-decrease)
 
-
+(setq delete-by-moving-to-trash t)
 (when (eq system-type 'darwin)
-  (setq delete-by-moving-to-trash t trash-directory "~/.Trash/emacs")
+  (setq trash-directory "~/.Trash/emacs")
   (setq mac-option-modifier 'hyper) ; Option key as Hyper
   (setq mac-option-modifier 'super) ; Option key as Super
   (setq mac-command-modifier 'meta) ; Command key as Meta

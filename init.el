@@ -258,3 +258,6 @@
 (global-set-key [(meta f2)] 'bc-list)
 
 (global-set-key "\C-ci" 'qiang-ido-imenu-symbol)
+
+(require 'maximize)
+(maximize-toggle-frame-hmax)

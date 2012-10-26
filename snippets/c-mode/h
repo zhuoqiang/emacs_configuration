@@ -1,11 +1,11 @@
 # -*- mode: snippet -*-
-# name : header guard
+# name : c/c++ header guard
 # key: h
 # --
 /**
-   @author ZHUO Qiang
+   @author `(user-full-name)`
 
-   @date `(current-time-string)`
+   @date `(format-time-string "%Y-%m-%d %H:%M")`
    @file
 */
 

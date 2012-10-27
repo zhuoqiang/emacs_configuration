@@ -72,9 +72,6 @@
 (setq-default next-line-add-newlines nil)
 (setq visible-bell t)
 (setq enable-recursive-minibuffers t)
-;; (setq scroll-step 1
-;;       scroll-margin 5
-;;       scroll-conservatively 10000)
 
 ;; Chinese sentence
 (setq sentence-end
@@ -259,5 +256,7 @@
 
 (global-set-key "\C-ci" 'qiang-ido-imenu-symbol)
 
-(require 'maximize)
-(maximize-toggle-frame-hmax)
+(when window-system
+  (require 'maximize)
+  (maximize-toggle-frame-hmax))
+

@@ -165,3 +165,30 @@ If set chinese-font-size to nil, it will follow english-font-size"
                     (string= (car imenu--rescan-item) name))
           (add-to-list 'symbol-names name)
           (add-to-list 'name-and-pos (cons name position))))))))
+
+
+;;;; Snippet hyperlink
+(defun qiang-delete-current-link-maybe ()
+  (ignore-errors
+    (if (save-excursion
+          (beginning-of-line)
+          (looking-at (concat "^[ \t]*" (if comment-start (regexp-quote comment-start) "#"))))
+        (beginning-of-line)
+      (delete-region (point) (progn (forward-sexp -1) (point))))))
+
+(defun qiang-expand-link (key)
+  "Hyperlink function for yasnippet expansion."
+  (qiang-delete-current-link-maybe)
+  (insert key)
+  (yas/expand))
+
+;;;; auto-insert with yasnippet
+(defun qiang-define-auto-insert (condition snippet-key &optional after)
+  "Set `auto-insert-alist' to expand SNIPPET-KEY at file creation.
+
+CONDITION may be a regexp that must match the new file's name, or it may be
+a symbol that must match the major mode for this element to apply.
+
+Associate CONDITION with SNIPPET-KEY in `auto-insert-alist'.
+Optional AFTER means to insert snippet after all existing snippets for CONDITION."
+  (add-to-list 'auto-insert-alist `(,condition . (lambda () (qiang-expand-link ,snippet-key))) after))

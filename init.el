@@ -182,7 +182,7 @@
 
 (setq
  auto-mode-alist 
- (union
+ (append
   '(("\\.\\(vsh\\|fsh\\|c\\)$" . c-mode)
     ("\\.\\(cpp|\\cxx\\|h\\|hpp\\|hxx\\|cc\\|dox\\|mm\\|hmm\\)$" . c++-mode)
     ("\\.\\(m\\|mm\\)$" . objc-mode))

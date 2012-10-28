@@ -260,3 +260,6 @@
   (require 'maximize)
   (maximize-toggle-frame-hmax))
 
+(auto-insert-mode 1)
+(qiang-define-auto-insert "\\.\\(h\\|hpp\\|hxx\\|hmm\\)$" "h")
+(setq auto-insert-query nil)

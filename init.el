@@ -25,7 +25,7 @@
 (load-library "qiang")
 
 (qiang-set-font
- '("Monaco" "Consolas" "DejaVu Sans Mono" "Monospace" "Courier New") 19
+ '("Monaco" "Consolas" "DejaVu Sans Mono" "Monospace" "Courier New")
  '("Microsoft Yahei" "STHeiti" "hei" "文泉驿等宽微米黑" "新宋体" "宋体"))
 
 (setq text-scale-mode-step 1.1)

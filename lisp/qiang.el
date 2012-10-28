@@ -1,18 +1,23 @@
+(defun qiang-best-font-size ()
+  (/ (x-display-pixel-height) 47))
+
 (defun qiang-font-existsp (font)
   (if (null (x-list-fonts font))
       nil t))
 
 (defun qiang-set-font (english-fonts
-                       english-font-size
                        chinese-fonts
+                       &optional english-font-size
                        &optional chinese-font-size)
-  "If set chinese-font-size to nil, it will follow english-font-size"
+  "If english font size to nil, it will use best font size. 
+If set chinese-font-size to nil, it will follow english-font-size"
   ;; 
   ;; The following 2 method cannot make the new frame work.
   ;; (set-default-font "Consolas:pixelsize=18")
   ;; (add-to-list 'default-frame-alist '(font . "Consolas:pixelsize=18"))
   ;; We will use set-face-attribute
-
+  
+  (setq english-font-size (if english-font-size english-font-size (qiang-best-font-size)))
   (require 'cl)                         ; for find if
   (if window-system
       (let ((en-font (find-if #'qiang-font-existsp english-fonts))

@@ -241,6 +241,7 @@
   (if window-system
       '(progn
          (color-theme-initialize)
+         (load "color-theme-blackboard")
          (color-theme-blackboard))))
 
 (require 'quick-jump)

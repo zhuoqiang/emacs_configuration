@@ -41,11 +41,11 @@
 (setq delete-by-moving-to-trash t)
 (when (eq system-type 'darwin)
   (setq trash-directory "~/.Trash/emacs")
-  (setq mac-option-modifier 'hyper) ; Option key as Hyper
-  (setq mac-option-modifier 'super) ; Option key as Super
-  (setq mac-command-modifier 'meta) ; Command key as Meta
-  (setq mac-control-modifier 'ctrl) ; Control key as Ctrl
-  (setq mac-control-modifier 'ctrl) ; Control key as Ctrl
+  ;; (setq mac-option-modifier 'hyper) ; Option key as Hyper
+  ;; (setq mac-option-modifier 'super) ; Option key as Super
+  ;; (setq mac-command-modifier 'meta) ; Command key as Meta
+  ;; (setq mac-control-modifier 'ctrl) ; Control key as Ctrl
+  ;; (setq mac-control-modifier 'ctrl) ; Control key as Ctrl
   (setq ns-pop-up-frames nil); open file in current frame
   )
 

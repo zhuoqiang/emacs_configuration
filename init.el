@@ -238,13 +238,18 @@
 
 (require 'ahg)
 
-(require 'color-theme)
-(eval-after-load "color-theme"
-  (if window-system
-      '(progn
-         (color-theme-initialize)
-         (load "color-theme-blackboard")
-         (color-theme-blackboard))))
+(if (and (boundp 'custom-theme-load-path) nil)
+    (progn
+      (add-to-list 'custom-theme-load-path (qiang-in-emacs-directory "themes"))
+      (load-theme 'wheatgrass t))
+  (progn
+    (require 'color-theme)
+    (eval-after-load "color-theme"
+      (if window-system
+          '(progn
+             (color-theme-initialize)
+             (load "color-theme-blackboard")
+             (color-theme-blackboard))))))
 
 (require 'quick-jump)
 (quick-jump-default-keybinding)

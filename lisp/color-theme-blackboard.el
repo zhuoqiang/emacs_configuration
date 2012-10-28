@@ -50,7 +50,7 @@
      (gui-element ((t (:background "#D4D0C8" :foreground "black"))))
      (region ((t (:background "#253B76"))))
      (mode-line ((t (:background "grey75" :foreground "black"))))
-     (highlight ((t (:background "#010"))))
+     (highlight ((t (:background "#001500"))))
      (highline-face ((t (:background "SeaGreen"))))
      (italic ((t (nil))))
      (left-margin ((t (nil))))

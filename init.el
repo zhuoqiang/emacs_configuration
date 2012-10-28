@@ -255,8 +255,8 @@
 (global-set-key "\C-ci" 'qiang-ido-imenu-symbol)
 
 (when window-system
-  (require 'maximize)
-  (maximize-toggle-frame-hmax))
+  (require 'frame-cmds)
+  (maximize-frame))
 
 (auto-insert-mode 1)
 (setq auto-insert-alist '()) ; clear build-in insert templates

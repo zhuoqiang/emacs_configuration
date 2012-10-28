@@ -230,9 +230,10 @@
 (setq auto-mode-alist
       (cons '("\\.md" . markdown-mode) auto-mode-alist))
 
-
 (require 'yasnippet) 
 (yas/global-mode 1)
+(when (not window-system)
+  (setq-default yas-trigger-key "TAB"))
 
 (require 'ahg)
 

@@ -25,10 +25,8 @@
 (load-library "qiang")
 
 (qiang-set-font
- '("Monaco" "Consolas" "DejaVu Sans Mono" "Monospace" "Courier New") 
- ":pixelsize=19"
- '("Microsoft Yahei" "STHeiti" "华文黑体" "hei" 
-   "文泉驿等宽微米黑" "黑体" "新宋体" "宋体"))
+ '("Monaco" "Consolas" "DejaVu Sans Mono" "Monospace" "Courier New") 19
+ '("Microsoft Yahei" "STHeiti" "hei" "文泉驿等宽微米黑" "新宋体" "宋体"))
 
 (setq text-scale-mode-step 1.1)
 ;; For Linux

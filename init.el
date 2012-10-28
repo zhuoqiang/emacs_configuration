@@ -259,5 +259,6 @@
   (maximize-toggle-frame-hmax))
 
 (auto-insert-mode 1)
+(setq auto-insert-alist '()) ; clear build-in insert templates
 (qiang-define-auto-insert "\\.\\(h\\|hpp\\|hxx\\|hmm\\)$" "h")
 (setq auto-insert-query nil)

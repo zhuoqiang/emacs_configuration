@@ -263,8 +263,11 @@
 (global-set-key "\C-ci" 'qiang-ido-imenu-symbol)
 
 (when window-system
-  (require 'frame-cmds)
-  (maximize-frame))
+  (if (eq system-type 'windows-nt)
+      (w32-send-sys-command 61488)
+    '(progn
+       (require 'frame-cmds)
+       (maximize-frame))))
 
 (auto-insert-mode 1)
 (setq auto-insert-alist '()) ; clear build-in insert templates

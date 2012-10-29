@@ -265,9 +265,9 @@
 (when window-system
   (if (eq system-type 'windows-nt)
       (w32-send-sys-command 61488)
-    '(progn
-       (require 'frame-cmds)
-       (maximize-frame))))
+    (progn
+      (require 'frame-cmds)
+      (maximize-frame))))
 
 (auto-insert-mode 1)
 (setq auto-insert-alist '()) ; clear build-in insert templates

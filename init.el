@@ -238,7 +238,7 @@
 
 (require 'ahg)
 
-(if (and (boundp 'custom-theme-load-path) nil)
+(if (and (boundp 'custom-theme-load-path) t)
     (progn
       (add-to-list 'custom-theme-load-path (qiang-in-emacs-directory "themes"))
       (load-theme 'wheatgrass t))

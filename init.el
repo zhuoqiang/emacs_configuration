@@ -231,6 +231,10 @@
 (setq auto-mode-alist
       (cons '("\\.md" . markdown-mode) auto-mode-alist))
 
+
+;; Org Mode
+(setq org-startup-truncated nil)
+
 (require 'yasnippet) 
 (yas/global-mode 1)
 (when (not window-system)

@@ -1,5 +1,5 @@
 (defun qiang-best-font-size ()
-  (if window-system 
+  (if window-system
       (/ (x-display-pixel-height) 47)
     0))
 
@@ -9,32 +9,27 @@
 
 (defun qiang-set-font (english-fonts
                        chinese-fonts
-                       &optional english-font-size
-                       &optional chinese-font-size)
-  "If english font size to nil, it will use best font size. 
-If set chinese-font-size to nil, it will follow english-font-size"
+                       &optional font-size)
+  "If font size is nil, use best font size"
   ;; 
   ;; The following 2 method cannot make the new frame work.
   ;; (set-default-font "Consolas:pixelsize=18")
   ;; (add-to-list 'default-frame-alist '(font . "Consolas:pixelsize=18"))
   ;; We will use set-face-attribute
   
-  (setq english-font-size (if english-font-size english-font-size (qiang-best-font-size)))
   (require 'cl)                         ; for find if
   (if window-system
       (let ((en-font (find-if #'qiang-font-existsp english-fonts))
             (zh-font (find-if #'qiang-font-existsp chinese-fonts))
-            (chinese-font-size (if chinese-font-size chinese-font-size english-font-size)))
+            (font-size (if font-size font-size (qiang-best-font-size))))
 
-        (message "Set English Font to %s %d" en-font english-font-size)
-        ;; Set English font
-        (set-face-attribute 'default nil :font en-font :height (* 10 english-font-size))
-
-        (message "Set Chinese Font to %s %d" zh-font chinese-font-size)
-        ;; Set Chinese font 
+        (message "Set Font to [%s, %s, %d]" en-font zh-font font-size)
+        (set-face-attribute 'default nil :font (format "%s:pixelsize=%d" en-font font-size))
         (dolist (charset '(kana han symbol cjk-misc bopomofo))
           (set-fontset-font (frame-parameter nil 'font) charset
-                            (font-spec :family zh-font :size chinese-font-size))))
+                            (font-spec :family zh-font
+                                        ;:size font-size ; wrong under windows
+                                       ))))
     (message "Emacs in console will skip font setting.")))
 
 

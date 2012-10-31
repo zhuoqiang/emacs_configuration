@@ -182,3 +182,9 @@ a symbol that must match the major mode for this element to apply.
 Associate CONDITION with SNIPPET-KEY in `auto-insert-alist'.
 Optional AFTER means to insert snippet after all existing snippets for CONDITION."
   (add-to-list 'auto-insert-alist `(,condition . (lambda () (qiang-expand-link ,snippet-key))) after))
+
+(defun qiang-open-previous-line (arg)
+  (interactive "p")
+  (beginning-of-line)
+  (open-line arg)
+  (indent-according-to-mode))

@@ -105,6 +105,7 @@
 (global-set-key [(f8)] 'next-error)
 (global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "C-S-k") 'kill-whole-line)
+(global-set-key (kbd "C-o") 'qiang-open-previous-line)
 
 (setq hippie-expand-try-functions-list
       '(try-expand-dabbrev

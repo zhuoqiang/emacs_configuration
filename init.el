@@ -237,9 +237,10 @@
 (setq org-startup-truncated nil)
 
 (require 'yasnippet) 
-(yas/global-mode 1)
+(yas-global-mode 1)
 (when (not window-system)
   (setq-default yas-trigger-key "TAB"))
+(setq yas-also-auto-indent-first-line t)
 
 (require 'ahg)
 

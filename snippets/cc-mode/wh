@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name : while (true) {}
+# key: wh
+# --
+while (${1:true}) {
+    $0
+}

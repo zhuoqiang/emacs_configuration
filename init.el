@@ -106,7 +106,7 @@
 (global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "C-S-k") 'kill-whole-line)
 (global-set-key (kbd "C-o") 'qiang-open-previous-line)
-
+(global-set-key (kbd "C-S-o") 'qiang-open-next-line)
 (setq hippie-expand-try-functions-list
       '(try-expand-dabbrev
         try-expand-dabbrev-visible
@@ -279,3 +279,15 @@
 (setq auto-insert-alist '()) ; clear build-in insert templates
 (qiang-define-auto-insert "\\.\\(h\\|hpp\\|hxx\\|hmm\\)$" "h")
 (setq auto-insert-query nil)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes (quote ("d3b0b65e39bb70a9a6c9470c1ab30d49b3fd4a6e538d1d128cd410803ced3a78" default))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

@@ -188,3 +188,10 @@ Optional AFTER means to insert snippet after all existing snippets for CONDITION
   (beginning-of-line)
   (open-line arg)
   (indent-according-to-mode))
+
+(defun qiang-open-next-line (arg)
+  (interactive "p")
+  (end-of-line)
+  (open-line arg)
+  (next-line 1)
+  (indent-according-to-mode))

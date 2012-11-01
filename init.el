@@ -177,7 +177,7 @@
  (lambda ()
    (c-set-style "qiang")
    (auto-fill-mode)
-   (c-toggle-auto-newline)
+   ;; (c-toggle-auto-newline)
    (c-toggle-auto-hungry-state)))
 
 (setq

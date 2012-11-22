@@ -71,6 +71,9 @@
 (setq-default next-line-add-newlines nil)
 (setq visible-bell t)
 (setq enable-recursive-minibuffers t)
+(setq scroll-margin 5
+      scroll-conservatively 1000)
+
 
 ;; Chinese sentence
 (setq sentence-end

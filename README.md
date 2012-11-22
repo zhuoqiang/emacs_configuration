@@ -9,13 +9,14 @@ This configuration has minimal configuraion for the sake of simplicity:
 - Chinese & English fonts setting with font scale function
 - Programming language mode
 - Jump around/bookmark
-- Blackboard emacs theme
+- More emacs theme
 - Auto restore files when re-open
 - Auto typing using snippers and auto insert
+- Auto maxmize frame when startup emacs
 
-It works well on Emacs 24 under Mac and Windows. All you need to do is checkout the code to *~/.emacs.d/* folder under your home directory and start emacs. It should be a good start point to customize emacs further as you wish, good luck hacking!
+It works well for Emacs 24 under Mac and Windows (not tested under Linux though). All you need to do is checkout the code to the *~/.emacs.d/* directory. It also serves as a pretty good start point for you to customize emacs further, good luck hacking!
 
 ---
 Note:
 
-- Please *delete ~/.emacs* file to let Emacs have the chance loading *~/.emacs.d/init.el* for startup instead.
+- Please *delete ~/.emacs* file to let Emacs use *~/.emacs.d/init.el* for startup configuration instead.

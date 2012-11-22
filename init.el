@@ -283,6 +283,7 @@
 (auto-insert-mode 1)
 (setq auto-insert-alist '()) ; clear build-in insert templates
 (qiang-define-auto-insert "\\.\\(h\\|hpp\\|hxx\\|hmm\\)$" "h")
+(qiang-define-auto-insert "\\.\\(html\\)" "html5")
 (setq auto-insert-query nil)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

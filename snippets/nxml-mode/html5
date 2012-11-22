@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name : html5
+# key: h
+# --
+<!doctype html>
+<html lang="${1:zh}">
+  <head>
+    <meta charset="utf-8" />
+    $2
+  </head>
+  <body>
+    $0
+  </body>
+</html>

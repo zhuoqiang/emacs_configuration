@@ -225,9 +225,11 @@
 
 
 ;; nXML Mode
-(setq auto-mode-alist
-      (cons '("\\(\\.xml\\)\\|\\(\\.html\\)|\\(\\.zcml\\)$" . nxml-mode)
-            auto-mode-alist))
+(setq
+ auto-mode-alist 
+ (cons '("\\.\\(xml\\|html\\|zcml\\)" . nxml-mode)
+       auto-mode-alist))
+
 
 ;; Markdown Mode
 (autoload 'markdown-mode "markdown-mode"

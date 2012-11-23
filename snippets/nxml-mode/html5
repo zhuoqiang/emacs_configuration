@@ -2,7 +2,7 @@
 # name : html5
 # key: html5
 # --
-<!doctype html>
+<!DOCTYPE html>
 <html lang="${1:zh}">
   <head>
     <meta charset="utf-8" />

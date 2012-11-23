@@ -230,6 +230,10 @@
  (cons '("\\.\\(xml\\|html\\|zcml\\)" . nxml-mode)
        auto-mode-alist))
 
+(setq nxml-slash-auto-complete-flag t)
+(eval-after-load "rng-loc"
+  '(add-to-list 'rng-schema-locating-files (qiang-in-emacs-directory "lisp/html5-el/schemas.xml")))
+(require 'whattf-dt)
 
 ;; Markdown Mode
 (autoload 'markdown-mode "markdown-mode"

@@ -45,6 +45,8 @@
   ;; (setq mac-control-modifier 'ctrl) ; Control key as Ctrl
   ;; (setq mac-control-modifier 'ctrl) ; Control key as Ctrl
   (setq ns-pop-up-frames nil); open file in current frame
+  (global-set-key (kbd "<s-wheel-up>") 'text-scale-increase)
+  (global-set-key (kbd "<s-wheel-down>") 'text-scale-decrease)
   )
 
 

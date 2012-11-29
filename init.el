@@ -231,6 +231,9 @@
  auto-mode-alist 
  (cons '("\\.\\(xml\\|html\\|zcml\\)" . nxml-mode)
        auto-mode-alist))
+(add-hook
+ 'nxml-mode-hook 
+ (lambda () (define-key nxml-mode-map (kbd "C-c v") 'browse-url-of-buffer)))
 
 (setq nxml-slash-auto-complete-flag t)
 (eval-after-load "rng-loc"
@@ -258,7 +261,7 @@
 (if (and (boundp 'custom-theme-load-path) t)
     (progn
       (add-to-list 'custom-theme-load-path (qiang-in-emacs-directory "themes"))
-      (load-theme 'wheatgrass t))
+      (load-theme 'zenburn t))
   (progn
     (require 'color-theme)
     (eval-after-load "color-theme"

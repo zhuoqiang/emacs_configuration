@@ -41,9 +41,8 @@
   (setq trash-directory "~/.Trash/emacs")
   ;; (setq mac-option-modifier 'hyper) ; Option key as Hyper
   ;; (setq mac-option-modifier 'super) ; Option key as Super
-  ;; (setq mac-command-modifier 'meta) ; Command key as Meta
   ;; (setq mac-control-modifier 'ctrl) ; Control key as Ctrl
-  ;; (setq mac-control-modifier 'ctrl) ; Control key as Ctrl
+  (setq mac-command-modifier 'meta) ; Command key as Meta
   (setq ns-pop-up-frames nil); open file in current frame
   (global-set-key (kbd "<s-wheel-up>") 'text-scale-increase)
   (global-set-key (kbd "<s-wheel-down>") 'text-scale-decrease)
@@ -110,8 +109,8 @@
 (global-set-key [(f8)] 'next-error)
 (global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "C-S-k") 'kill-whole-line)
-(global-set-key (kbd "C-o") 'qiang-open-next-line)
-(global-set-key (kbd "C-S-o") 'qiang-open-previous-line)
+(global-set-key (kbd "C-S-o") 'qiang-open-next-line)
+(global-set-key (kbd "C-o") 'qiang-open-previous-line)
 (setq hippie-expand-try-functions-list
       '(try-expand-dabbrev
         try-expand-dabbrev-visible
@@ -152,7 +151,7 @@
            (member major-mode
                    '(emacs-lisp-mode lisp-mode clojure-mode scheme-mode
                                      haskell-mode ruby-mode rspec-mode
-                                     c-mode c++-mode objc-mode
+                                     c-mode c++-mode objc-mode nxml-mode
                                      latex-mode js-mode plain-tex-mode))
            (let ((mark-even-if-inactive transient-mark-mode))
              (indent-region (region-beginning) (region-end) nil))))))

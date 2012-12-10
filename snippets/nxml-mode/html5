@@ -3,10 +3,10 @@
 # key: html5
 # --
 <!DOCTYPE html>
-<html lang="${1:zh}">
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
-    <title>${2:`(format-time-string "%Y-%m-%d %H:%M Created")` by `(user-full-name)`}</title>
+    <meta charset="utf-8"/>
+    <title>${1:`(format-time-string "%Y-%m-%d %H:%M")` by `(user-full-name)`}</title>
   </head>
   <body>
     $0

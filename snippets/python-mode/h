@@ -1,0 +1,20 @@
+# -*- mode: snippet -*-
+# name : python header
+# key: h
+# --
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
+
+'''
+'''
+
+import sys
+import os
+
+__auther__ = '`(user-full-name)`'
+__date__ = '`(format-time-string "%Y-%m-%d %H:%M")`'
+
+$0
+
+if __name__ == '__main__':
+   ${1:pass}

@@ -260,7 +260,9 @@
 (if (and (boundp 'custom-theme-load-path) t)
     (progn
       (add-to-list 'custom-theme-load-path (qiang-in-emacs-directory "themes"))
-      (load-theme 'zenburn t))
+      ;; (load-theme 'manoj-dark t)
+      (load-theme 'zenburn t)
+      )
   (progn
     (require 'color-theme)
     (eval-after-load "color-theme"
@@ -294,15 +296,3 @@
 (qiang-define-auto-insert "\\.\\(html\\)" "html5")
 (qiang-define-auto-insert "\\.\\(py\\|pyw\\)$" "h")
 (setq auto-insert-query nil)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes (quote ("d3b0b65e39bb70a9a6c9470c1ab30d49b3fd4a6e538d1d128cd410803ced3a78" default))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )

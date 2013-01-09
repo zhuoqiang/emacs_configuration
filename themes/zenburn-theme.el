@@ -53,7 +53,8 @@
       (zenburn-fg-1 "#656555")
       (zenburn-bg-1 "#2b2b2b")
       (zenburn-bg-05 "#383838")
-      (zenburn-bg "#3f3f3f")
+      (zenburn-bg "#000") ;; Changed by ZHUO Qiang, make it darker
+      ;; (zenburn-bg "#3f3f3f")
       (zenburn-bg+1 "#4f4f4f")
       (zenburn-bg+2 "#5f5f5f")
       (zenburn-bg+3 "#6f6f6f")

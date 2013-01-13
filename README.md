@@ -2,7 +2,7 @@
 
 Emacs is known to be <del>one of</del> the most powerful editor in the world. Yet its power is hidden in the absence of proper configuration.
 
-Emacs configuration is hard and fun. After quite a while hard time fighting against emacs lisp I finally have some fun with my Emacs and I just open source my personal Emacs configuration hoping it's helpful to you.
+Emacs configuration is hard and fun. After quite a while hard time fighting against emacs lisp I finally have some fun with my Emacs and here I just open source my personal Emacs configuration, hoping it's helpful to you.
 
 This configuration has minimal configuraion for the sake of simplicity:
 
@@ -13,10 +13,9 @@ This configuration has minimal configuraion for the sake of simplicity:
 - Auto restore files when re-open
 - Auto typing using snippers and auto insert
 - Auto maxmize frame when startup emacs
+- Useful snippets and template using yasnippet
 
-It works well for Emacs 24 under Mac and Windows (not tested under Linux though). All you need to do is checkout the code to the *~/.emacs.d/* directory. It also serves as a pretty good start point for you to customize emacs further, good luck hacking!
+It works for Emacs 24 under Mac and Windows (not tested under Linux though). All you need to do is checkout the code to the `~/.emacs.d/` directory. I hope it could be a start point to enhance your emacs further, good luck hacking!
 
----
-Note:
-
-- Please *delete ~/.emacs* file to let Emacs use *~/.emacs.d/init.el* for startup configuration instead.
+-----
+Note: Please `delete ~/.emacs` file to let Emacs use `~/.emacs.d/init.el` for startup configuration instead.

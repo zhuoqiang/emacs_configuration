@@ -14,7 +14,6 @@ This configuration has minimal configuraion for the sake of simplicity:
 - Auto typing using snippets and auto insert
 - Auto maxmize frame when startup emacs
 
-It works for Emacs 24 under Mac and Windows (not tested under Linux though). All you need to do is checkout the code to the `~/.emacs.d/` directory. I hope it could be a start point to enhance your emacs further, good luck hacking!
+It works for Emacs 24 under Mac and Windows (not tested under Linux though). All you need to do is checkout the code to the `~/.emacs.d/` directory. If you already have `~/.emacs` file under home directory, you have to remove it so that  Emacs could use ``~/.emacs.d/init.el`` instead.
 
------
-Note: Please `delete ~/.emacs` file to let Emacs use `~/.emacs.d/init.el` for startup configuration instead.
+I hope it could be a start point to enhance your emacs further, good luck hacking!

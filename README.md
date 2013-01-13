@@ -11,9 +11,8 @@ This configuration has minimal configuraion for the sake of simplicity:
 - Jump around/bookmark
 - More emacs theme
 - Auto restore files when re-open
-- Auto typing using snippers and auto insert
+- Auto typing using snippets and auto insert
 - Auto maxmize frame when startup emacs
-- Useful snippets and template using yasnippet
 
 It works for Emacs 24 under Mac and Windows (not tested under Linux though). All you need to do is checkout the code to the `~/.emacs.d/` directory. I hope it could be a start point to enhance your emacs further, good luck hacking!
 

@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name : rst header
+# key: h
+# --
+${1:Title}
+${1:$(make-string (string-width text) ?\#)}
+:date: `(format-time-string "%Y-%m-%d %H:%M")`
+:category: ${2:编程}
+:tags: ${3:c++, programming}
+

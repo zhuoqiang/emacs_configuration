@@ -53,7 +53,15 @@
 ;; (setq x-select-enable-clipboard t)
 ;; (setq interprogram-paste-function 'x-selection-value)
 (if (functionp 'tool-bar-mode) (tool-bar-mode 0))
+
 (setq-default buffer-file-coding-system 'utf-8-unix)
+
+;; (setq locale-coding-system 'utf-8)
+;; (set-terminal-coding-system 'utf-8)
+;; (set-keyboard-coding-system 'utf-8)
+;; (set-selection-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
+
 (setq frame-title-format "%f %4 %b %Z %* %10 %I")
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)

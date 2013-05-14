@@ -11,8 +11,10 @@
 import sys
 import os
 
-__auther__ = '`(user-full-name)`'
+__author__ = '`(user-full-name)`'
 __date__ = '`(format-time-string "%Y-%m-%d %H:%M")`'
+__version_info__ = (0, 1, 0)
+__version__ = '.'.join(str(i) for i in __version_info__)
 
 $0
 

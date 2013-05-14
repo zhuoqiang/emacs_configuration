@@ -5,8 +5,8 @@
 ${1:Title}
 ${1:$(make-string (string-width text) ?\#)}
 :date: `(format-time-string "%Y-%m-%d %H:%M")`
-:category: ${2:编程}
-:tags: ${3:c++, programming}
+:category: ${2:programming}
+:tags: ${3:python, design}
 :status: draft
 
 $0

@@ -317,3 +317,8 @@
 (qiang-define-auto-insert "\\.\\(rst\\)" "h")
 (qiang-define-auto-insert "\\.\\(py\\|pyw\\)$" "h")
 (setq auto-insert-query nil)
+
+(when (memq window-system '(mac ns))
+  (progn
+    (require 'exec-path-from-shell)
+    (exec-path-from-shell-initialize)))

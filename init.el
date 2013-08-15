@@ -146,6 +146,8 @@
      (add-to-list 'compilation-error-regexp-alist 
                   '("^ *File \"\\([^,\" \n\t]+\\)\", line \\([0-9]+\\)" 1 2))
      (add-to-list 'compilation-error-regexp-alist 
+                  '("^[ \t]*\\(.+?\\)(\\([0-9]+\\),\\([0-9]+\\)): \\(error\\|warning\\): " 1 2 3))
+     (add-to-list 'compilation-error-regexp-alist 
                   '("^\\(.*\\)(\\([0-9]+\\)):" 1 2))))
 
 (global-set-key "\M-;" 'qiang-comment-dwim-line)
@@ -218,7 +220,7 @@
 
 ;; python Mode
 (setq auto-mode-alist
-      (cons '("\\(\\.py?w\\)\\|\\(sconscript\\)\\|\\(sconstruct\\)\\|\\(SConstruct\\)\\|\\(SConscript\\)$" . python-mode)
+      (cons '("\\(\\.py?w\\)\\|\\(sconscript\\)\\|\\(sconstruct\\)\\|\\(SConstruct\\)\\|\\(SConscript\\)|\\(config\\)$" . python-mode)
             auto-mode-alist))
 
 

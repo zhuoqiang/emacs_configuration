@@ -60,7 +60,7 @@
 ;; (set-terminal-coding-system 'utf-8)
 ;; (set-keyboard-coding-system 'utf-8)
 ;; (set-selection-coding-system 'utf-8)
-(prefer-coding-system 'utf-8)
+(prefer-coding-system 'utf-8-unix)
 
 (setq frame-title-format "%f %4 %b %Z %* %10 %I")
 (setq-default indent-tabs-mode nil)
@@ -211,6 +211,12 @@
    (c-toggle-auto-hungry-state t)))
 
 (add-hook 'find-file-hook 'qiang-choose-header-mode)
+
+
+;; VB dotNET mode
+(autoload 'vbnet-mode "vbnet-mode" "Mode for editing VB.NET code." t)
+(setq auto-mode-alist (append '(("\\.\\(frm\\|bas\\|cls\\|vb\\)$" .
+                                 vbnet-mode)) auto-mode-alist))
 
 ;; hexl Mode
 (setq auto-mode-alist

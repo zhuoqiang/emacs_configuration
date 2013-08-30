@@ -61,6 +61,7 @@
 ;; (set-keyboard-coding-system 'utf-8)
 ;; (set-selection-coding-system 'utf-8)
 (prefer-coding-system 'utf-8-unix)
+(set-language-environment "UTF-8")
 
 (setq frame-title-format "%f %4 %b %Z %* %10 %I")
 (setq-default indent-tabs-mode nil)

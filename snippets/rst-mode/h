@@ -1,6 +1,7 @@
 # -*- mode: snippet -*-
 # name : rst header
 # key: h
+# expand-env: ((yas/indent-line 'fixed))
 # --
 ${1:Title}
 ${1:$(make-string (string-width text) ?\#)}

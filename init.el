@@ -230,6 +230,7 @@
       (cons '("\\(\\.py?w\\)\\|\\(sconscript\\)\\|\\(sconstruct\\)\\|\\(SConstruct\\)\\|\\(SConscript\\)|\\(config\\)$" . python-mode)
             auto-mode-alist))
 
+(require 'virtualenv)
 
 ;; Lua Mode
 (autoload 'lua-mode "lua-mode" "Lua editing mode." t)

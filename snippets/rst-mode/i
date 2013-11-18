@@ -3,6 +3,6 @@
 # key: i
 # expand-env: ((yas/indent-line 'fixed))
 # --
-.. image:: {filename}/images/${1:file-path}.png
+.. image:: {filename}/images/${1:file-path}.jpg
    :alt: ${2:$1}
 

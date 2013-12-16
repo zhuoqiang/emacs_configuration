@@ -287,8 +287,8 @@
     (progn
       (add-to-list 'custom-theme-load-path (qiang-in-emacs-directory "themes"))
       (add-to-list 'custom-theme-load-path (qiang-in-emacs-directory "lisp/emacs-color-theme-solarized"))
-      ;; (load-theme 'manoj-dark t)
-      (load-theme 'zenburn t)
+      (load-theme 'manoj-dark t)
+      ;; (load-theme 'zenburn t)
       ;; (load-theme 'solarized-light t)
       ;; (load-theme 'solarized-dark t)
       )

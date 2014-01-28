@@ -143,7 +143,7 @@
 
 (eval-after-load "compile"
   '(progn
-     (setq-default compile-command "scons -u ")
+     (setq-default compile-command "string_detector.py .")
      (add-to-list 'compilation-error-regexp-alist 
                   '("^ *File \"\\([^,\" \n\t]+\\)\", line \\([0-9]+\\)" 1 2))
      (add-to-list 'compilation-error-regexp-alist 
@@ -246,8 +246,16 @@
 ;; nXML Mode
 (setq
  auto-mode-alist 
- (cons '("\\.\\(xml\\|html\\|zcml\\)" . nxml-mode)
+ (cons '("\\.\\(xml\\|html\\|zcml\\)$" . nxml-mode)
        auto-mode-alist))
+
+
+(setq
+ auto-mode-alist 
+ (cons '("\\.\\(aspx\\|ascx\\|cshtml\\)$" . nxml-mode)
+       auto-mode-alist))
+
+
 (add-hook
  'nxml-mode-hook 
  (lambda () (define-key nxml-mode-map (kbd "C-c v") 'browse-url-of-buffer)))
@@ -261,12 +269,12 @@
 (autoload 'markdown-mode "markdown-mode"
   "Major mode for editing Markdown files" t)
 (setq auto-mode-alist
-      (cons '("\\.md" . markdown-mode) auto-mode-alist))
+      (cons '("\\.md$" . markdown-mode) auto-mode-alist))
 
 
 ;; SCSS mode
 (autoload 'scss-mode "scss-mode")
-(add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))
+(add-to-list 'auto-mode-alist '("\\.scss$" . scss-mode))
 (setq scss-compile-at-save nil)
 
 (require 'sass-mode)
@@ -323,8 +331,8 @@
 (auto-insert-mode 1)
 (setq auto-insert-alist '()) ; clear build-in insert templates
 (qiang-define-auto-insert "\\.\\(h\\|hpp\\|hxx\\|hmm\\)$" "h")
-(qiang-define-auto-insert "\\.\\(html\\)" "html5")
-(qiang-define-auto-insert "\\.\\(rst\\)" "h")
+(qiang-define-auto-insert "\\.\\(html\\)$" "html5")
+(qiang-define-auto-insert "\\.\\(rst\\)$" "h")
 (qiang-define-auto-insert "\\.\\(py\\|pyw\\)$" "h")
 (setq auto-insert-query nil)
 
@@ -332,3 +340,15 @@
   (progn
     (require 'exec-path-from-shell)
     (exec-path-from-shell-initialize)))
+
+
+;; (fset 'content-translation
+;;    [?\C-w ?< ?% ?= ?  ?C ?o ?n ?e ?n ?t backspace backspace backspace ?t ?e ?n ?t ?H ?e ?l ?p ?e ?r ?. ?G ?t backspace ?e ?t ?T ?r ?a ?n ?s ?l ?t ?i ?o backspace backspace backspace backspace ?l ?a ?t ?i ?o ?n ?\( ?\" ?\C-y ?\C-f ?\C-f ?  ?% ?> ?\C-x ?\C-x ?\C-b ?, ?\C-b ?\" ?\C-x ?\C-s])
+
+;; (fset 'content-translation-id
+;;       "\C-w<%= %>\C-b\C-bContentHelper.GetTranslation() \C-b\C-b\"\C-y\C-x\C-x\C-b\C-b\C-f, \C-b\C-b\"\C-y\C-x\C-x\C-x\C-s\M-l")
+
+;; (global-set-key (kbd "C-c a") 'content-translation-id)
+;; (put 'content-translation-id 'kmacro t)
+
+(global-set-key (kbd "<f7>") 'next-error)

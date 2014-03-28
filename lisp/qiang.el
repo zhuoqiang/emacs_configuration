@@ -195,3 +195,10 @@ Optional AFTER means to insert snippet after all existing snippets for CONDITION
   (open-line arg)
   (next-line 1)
   (indent-according-to-mode))
+
+;;Insert the BOM at the start of a file for UTF
+(defun qiang-insert-bom()
+  (interactive)
+  (goto-char (point-min))
+  (ucs-insert (string-to-number "FEFF" 16)) 
+  )

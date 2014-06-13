@@ -227,8 +227,10 @@
 
 ;; python Mode
 (setq auto-mode-alist
-      (cons '("\\(\\.py?w\\)\\|\\(sconscript\\)\\|\\(sconstruct\\)\\|\\(SConstruct\\)\\|\\(SConscript\\)|\\(config\\)$" . python-mode)
+      (cons '("\\(\\.py[w]?\\)\\|\\(sconscript\\)\\|\\(sconstruct\\)\\|\\(SConstruct\\)\\|\\(SConscript\\)|\\(config\\)$" . python-mode)
             auto-mode-alist))
+
+(require 'cython-mode)
 
 (require 'virtualenv)
 

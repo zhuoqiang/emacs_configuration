@@ -143,7 +143,7 @@
 
 (eval-after-load "compile"
   '(progn
-     (setq-default compile-command "string_detector.py .")
+     (setq-default compile-command "scons -u ")
      (add-to-list 'compilation-error-regexp-alist 
                   '("^ *File \"\\([^,\" \n\t]+\\)\", line \\([0-9]+\\)" 1 2))
      (add-to-list 'compilation-error-regexp-alist 
@@ -227,8 +227,10 @@
 
 ;; python Mode
 (setq auto-mode-alist
-      (cons '("\\(\\.py?w\\)\\|\\(sconscript\\)\\|\\(sconstruct\\)\\|\\(SConstruct\\)\\|\\(SConscript\\)|\\(config\\)$" . python-mode)
+      (cons '("\\(\\.py[w]?\\)\\|\\(sconscript\\)\\|\\(sconstruct\\)\\|\\(SConstruct\\)\\|\\(SConscript\\)|\\(config\\)$" . python-mode)
             auto-mode-alist))
+
+(require 'cython-mode)
 
 (require 'virtualenv)
 
@@ -340,15 +342,5 @@
   (progn
     (require 'exec-path-from-shell)
     (exec-path-from-shell-initialize)))
-
-
-;; (fset 'content-translation
-;;    [?\C-w ?< ?% ?= ?  ?C ?o ?n ?e ?n ?t backspace backspace backspace ?t ?e ?n ?t ?H ?e ?l ?p ?e ?r ?. ?G ?t backspace ?e ?t ?T ?r ?a ?n ?s ?l ?t ?i ?o backspace backspace backspace backspace ?l ?a ?t ?i ?o ?n ?\( ?\" ?\C-y ?\C-f ?\C-f ?  ?% ?> ?\C-x ?\C-x ?\C-b ?, ?\C-b ?\" ?\C-x ?\C-s])
-
-;; (fset 'content-translation-id
-;;       "\C-w<%= %>\C-b\C-bContentHelper.GetTranslation() \C-b\C-b\"\C-y\C-x\C-x\C-b\C-b\C-f, \C-b\C-b\"\C-y\C-x\C-x\C-x\C-s\M-l")
-
-;; (global-set-key (kbd "C-c a") 'content-translation-id)
-;; (put 'content-translation-id 'kmacro t)
 
 (global-set-key (kbd "<f7>") 'next-error)

@@ -310,7 +310,7 @@
              (color-theme-initialize)
              ;; (load "color-theme-blackboard")
              (load "color-theme-solarized-dark")
-             (color-theme-blackboard))))))
+             (color-theme-blackboard) (color-theme-calm-forest))))))
 
 (require 'quick-jump)
 (quick-jump-default-keybinding)

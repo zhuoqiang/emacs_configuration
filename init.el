@@ -26,7 +26,7 @@
 
 (qiang-set-font
  '("Monaco" "Consolas" "DejaVu Sans Mono" "Monospace" "Courier New")
- '("Microsoft Yahei" "STHeiti" "hei" "文泉驿等宽微米黑" "新宋体" "宋体"))
+ '("Microsoft Yahei" "STHeiti" "hei" "文泉驿等宽微米黑" "新宋体" "宋体") 18)
 
 (setq text-scale-mode-step 1.1)
 ;; For Linux

@@ -5,6 +5,9 @@
 
 ;; (setq debug-on-error t)
 
+;; Change default encoding to UTF-8 for Emacs Python Shell
+(setenv "LC_CTYPE" "UTF-8")
+
 (when (not (equal window-system 'w32))
   (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
   (setq exec-path (append exec-path '("/usr/local/bin"))))

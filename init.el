@@ -74,9 +74,9 @@
 (display-time-mode t)
 (setq show-paren-style 'parentheses)
 (show-paren-mode t)
-(when window-system
-  (require 'hl-line+)
-  (toggle-hl-line-when-idle t))
+;; (when window-system
+;;   (require 'hl-line+)
+;;   (toggle-hl-line-when-idle t))
 
 (fset 'yes-or-no-p 'y-or-n-p)
 (setq x-stretch-cursor t) ; Stretch the cursor on TABs.

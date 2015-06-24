@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name : attributes
+# key: =
+# --
+${1:class}="${2:$1}"

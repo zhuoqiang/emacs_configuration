@@ -1,0 +1,17 @@
+# -*- mode: snippet -*-
+# name : c/c++ header guard
+# key: h
+# --
+/**
+   @author `(user-full-name)`
+
+   @date `(format-time-string "%Y-%m-%d %H:%M")`
+   @file
+*/
+
+#ifndef ${1:_`(upcase (file-name-nondirectory (file-name-sans-extension (buffer-file-name))))`_`(upcase (file-name-nondirectory (file-name-extension (buffer-file-name))))`_`(number-to-string (random 9999999))`_}
+#define $1
+
+$0
+
+#endif /* $1 */

@@ -311,8 +311,8 @@
       (if window-system
           '(progn
              (color-theme-initialize)
-             ;; (load "color-theme-blackboard")
-             (load "color-theme-solarized-dark")
+             (load "color-theme-blackboard")
+             ;; (load "color-theme-solarized-dark")
              (color-theme-blackboard) (color-theme-calm-forest))))))
 
 (require 'jinja2-mode)

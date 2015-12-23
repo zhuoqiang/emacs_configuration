@@ -2,3 +2,4 @@
 \.elc$
 \.orig$
 \#
+\.DS_Store$

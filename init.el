@@ -82,7 +82,7 @@
 (setq x-stretch-cursor t) ; Stretch the cursor on TABs.
 (setq-default comint-process-echoes t) ;Do not echo the input in shell.
 (setq-default next-line-add-newlines nil)
-(setq visible-bell t)
+(setq visible-bell nil) ;; visible bell picture does not play well under Mac
 (setq enable-recursive-minibuffers t)
 (setq scroll-margin 5
       scroll-conservatively 1000)

@@ -361,3 +361,11 @@
     (exec-path-from-shell-initialize)))
 
 (global-set-key (kbd "<f7>") 'next-error)
+
+;; spell check settings
+
+(add-hook 'text-mode-hook 'flyspell-mode)
+(add-hook 'markdown-mode-hook 'flyspell-mode)
+(add-hook 'c++-mode-hook 'flyspell-prog-mode)
+(add-hook 'c-mode-hook 'flyspell-prog-mode)
+(add-hook 'python-mode-hook 'flyspell-prog-mode)

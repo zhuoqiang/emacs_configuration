@@ -7,6 +7,7 @@
 
 ;; Change default encoding to UTF-8 for Emacs Python Shell
 (setenv "LC_CTYPE" "UTF-8")
+(setenv "LANG" "zh_CN.UTF8")
 
 (when (not (equal window-system 'w32))
   (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
@@ -229,8 +230,11 @@
 
 
 ;; python Mode
+;; (autoload 'python-mode "python-mode" "Python Mode." t)
+;; (require 'python-mode)
+;; (add-to-list 'interpreter-mode-alist '("python" . python-mode))
 (setq auto-mode-alist
-      (cons '("\\(\\.py[w]?\\)\\|\\(sconscript\\)\\|\\(sconstruct\\)\\|\\(SConstruct\\)\\|\\(SConscript\\)|\\(config\\)$" . python-mode)
+      (cons '("\\(\\.py[w]?\\)\\|\\(sconscript\\)\\|\\(sconstruct\\)\\|\\(SConstruct\\)\\|\\(SConscript\\)$" . python-mode)
             auto-mode-alist))
 
 (require 'cython-mode)

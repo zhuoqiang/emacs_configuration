@@ -302,8 +302,9 @@
 
 (if (and (boundp 'custom-theme-load-path) t)
     (progn
-      ;; (add-to-list 'custom-theme-load-path (qiang-in-emacs-directory "themes"))
-      (load-theme 'deeper-blue t)
+      (add-to-list 'custom-theme-load-path (qiang-in-emacs-directory "themes"))
+      (load-theme 'seti t)      
+      ;; (load-theme 'deeper-blue t)
       )
   (progn
     (require 'color-theme)
@@ -349,7 +350,8 @@
       (w32-send-sys-command 61488)
     (progn
       (require 'frame-cmds)
-      (maximize-frame))))
+      ;; (maximize-frame)
+      )))
 
 (auto-insert-mode 1)
 (setq auto-insert-alist '()) ; clear build-in insert templates

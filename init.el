@@ -371,9 +371,14 @@
 (global-set-key (kbd "<f7>") 'next-error)
 
 ;; spell check settings
+;; you need to install `brew install aspell --with-lang-en`
+(ispell-change-dictionary "american" t)
 
 (add-hook 'text-mode-hook 'flyspell-mode)
 (add-hook 'markdown-mode-hook 'flyspell-mode)
+(add-hook 'org-mode-hook 'flyspell-mode)
+(add-hook 'html-mode-hook 'flyspell-mode)
+(add-hook 'lxml-mode-hook 'flyspell-mode)
 (add-hook 'c++-mode-hook 'flyspell-prog-mode)
 (add-hook 'c-mode-hook 'flyspell-prog-mode)
 (add-hook 'python-mode-hook 'flyspell-prog-mode)

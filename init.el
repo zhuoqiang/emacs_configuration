@@ -6,6 +6,13 @@
 ;; (setq debug-on-error t)
 
 ;; Change default encoding to UTF-8 for Emacs Python Shell
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
 (setenv "LC_CTYPE" "UTF-8")
 (setenv "LANG" "zh_CN.UTF8")
 
@@ -382,3 +389,14 @@
 (add-hook 'c++-mode-hook 'flyspell-prog-mode)
 (add-hook 'c-mode-hook 'flyspell-prog-mode)
 (add-hook 'python-mode-hook 'flyspell-prog-mode)
+
+(add-to-list 'auto-mode-alist '("\\.[Cc][Ss][Vv]\\'" . csv-mode))
+(autoload 'csv-mode "csv-mode"
+  "Major mode for editing comma-separated value files." t)
+
+
+;; Enable puml-mode for PlantUML files
+(setq puml-plantuml-jar-path (expand-file-name "~/bin/plantuml.jar"))
+(require 'puml-mode)
+(add-to-list 'auto-mode-alist '("\\.puml\\'" . puml-mode))
+(add-to-list 'auto-mode-alist '("\\.plantuml\\'" . puml-mode))

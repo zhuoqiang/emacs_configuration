@@ -312,7 +312,8 @@
 (if (and (boundp 'custom-theme-load-path) t)
     (progn
       (add-to-list 'custom-theme-load-path (qiang-in-emacs-directory "themes"))
-      (load-theme 'seti t)      
+      (load-theme 'tango-dark t)       
+      ;; (load-theme 'seti t) 
       ;; (load-theme 'deeper-blue t)
       )
   (progn

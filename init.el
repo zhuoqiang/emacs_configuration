@@ -156,13 +156,18 @@
 
 (eval-after-load "compile"
   '(progn
-     (setq-default compile-command "scons -u ")
+     ;; (setq-default compile-command "scons -u ")
+     (setq-default compile-command "cmake --build build && cd build; ctest -VV")
      (add-to-list 'compilation-error-regexp-alist 
                   '("^ *File \"\\([^,\" \n\t]+\\)\", line \\([0-9]+\\)" 1 2))
      (add-to-list 'compilation-error-regexp-alist 
                   '("^[ \t]*\\(.+?\\)(\\([0-9]+\\),\\([0-9]+\\)): \\(error\\|warning\\): " 1 2 3))
      (add-to-list 'compilation-error-regexp-alist 
-                  '("^\\(.*\\)(\\([0-9]+\\)):" 1 2))))
+                  '("^\\(.*\\)(\\([0-9]+\\)):" 1 2))
+     ;; for `ctest -VV` output
+     ;; 1: /Users/will/Projects/vmi-quic/vmi-server/system/remoted4/rmx/test/test_protocol.cpp:30: Failure
+     (add-to-list 'compilation-error-regexp-alist 
+                  '("^[0-9]+: \\(.*\\):\\([0-9]+\\):" 1 2))))
 
 (global-set-key "\M-;" 'qiang-comment-dwim-line)
 (global-set-key "\C-cR" 'qiang-rename-current-file-or-buffer)

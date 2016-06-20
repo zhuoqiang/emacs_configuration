@@ -1,7 +1,0 @@
-# -*- mode: snippet; require-final-newline: nil -*-
-# name: red
-# key: r
-# binding: direct-keybinding
-# expand-env: ((yas-indent-line 'fixed))
-# --
-<span style="color:red">$0

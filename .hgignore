@@ -3,3 +3,6 @@
 \.orig$
 \#
 \.DS_Store$
+\.git
+^lisp/yasnippet/doc/
+^lisp/yasnippet/yasmate/

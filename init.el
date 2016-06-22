@@ -406,3 +406,6 @@
 (require 'puml-mode)
 (add-to-list 'auto-mode-alist '("\\.puml\\'" . puml-mode))
 (add-to-list 'auto-mode-alist '("\\.plantuml\\'" . puml-mode))
+
+(require 'modern-cpp-font-lock)
+(modern-c++-font-lock-global-mode t)

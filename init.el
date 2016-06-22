@@ -199,19 +199,24 @@
 (define-key emacs-lisp-mode-map [(f5)] 'eval-buffer)
 
 ;; CC Mode
-(c-add-style
- "qiang"
- '("bsd"
-   (indent-tabs-mode . nil)
-   (c-basic-offset . 4)))
 
-(add-hook
- 'c-mode-common-hook '
- (lambda ()
-   (c-set-style "qiang")
-   (auto-fill-mode)
-   ;; (c-toggle-auto-newline)
-   (c-toggle-auto-hungry-state)))
+(require 'google-c-style)
+(add-hook 'c-mode-common-hook 'google-set-c-style)
+(add-hook 'c-mode-common-hook 'google-make-newline-indent)
+
+;; (c-add-style
+;;  "qiang"
+;;  '("bsd"
+;;    (indent-tabs-mode . nil)
+;;    (c-basic-offset . 4)))
+
+;; (add-hook
+;;  'c-mode-common-hook '
+;;  (lambda ()
+;;    (c-set-style "qiang")
+;;    (auto-fill-mode)
+;;    ;; (c-toggle-auto-newline)
+;;    (c-toggle-auto-hungry-state)))
 
 (setq
  auto-mode-alist 
@@ -409,3 +414,7 @@
 
 (require 'modern-cpp-font-lock)
 (modern-c++-font-lock-global-mode t)
+
+;; need install clang-format via `brew install clang-format`
+(require 'clang-format)
+(global-set-key [C-M-tab] 'clang-format-region)

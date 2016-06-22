@@ -157,7 +157,7 @@
 (eval-after-load "compile"
   '(progn
      ;; (setq-default compile-command "scons -u ")
-     (setq-default compile-command "cmake --build build && cd build; ctest -VV")
+     (setq-default compile-command "touch CMakeLists.txt && cmake --build build && cd build; ctest -VV")
      (add-to-list 'compilation-error-regexp-alist 
                   '("^ *File \"\\([^,\" \n\t]+\\)\", line \\([0-9]+\\)" 1 2))
      (add-to-list 'compilation-error-regexp-alist 
@@ -411,10 +411,11 @@
 (require 'puml-mode)
 (add-to-list 'auto-mode-alist '("\\.puml\\'" . puml-mode))
 (add-to-list 'auto-mode-alist '("\\.plantuml\\'" . puml-mode))
-
 (require 'modern-cpp-font-lock)
 (modern-c++-font-lock-global-mode t)
 
 ;; need install clang-format via `brew install clang-format`
 (require 'clang-format)
 (global-set-key [C-M-tab] 'clang-format-region)
+
+(require 'cmake-mode)

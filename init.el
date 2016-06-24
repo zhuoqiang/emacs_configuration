@@ -78,7 +78,7 @@
 
 (setq frame-title-format "%f %4 %b %Z %* %10 %I")
 (setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
+(setq-default tab-width 2)
 (column-number-mode t)
 (setq display-time-day-and-date t)
 (display-time-mode t)
@@ -164,10 +164,15 @@
                   '("^[ \t]*\\(.+?\\)(\\([0-9]+\\),\\([0-9]+\\)): \\(error\\|warning\\): " 1 2 3))
      (add-to-list 'compilation-error-regexp-alist 
                   '("^\\(.*\\)(\\([0-9]+\\)):" 1 2))
+     ;; for `googletest unknown failure'
+     ;; 1: unknown file: Failure
+     (add-to-list 'compilation-error-regexp-alist 
+                  '("^\\([0-9+]: \\)?unknown file: Failure"))     
      ;; for `ctest -VV` output
      ;; 1: /Users/will/Projects/vmi-quic/vmi-server/system/remoted4/rmx/test/test_protocol.cpp:30: Failure
      (add-to-list 'compilation-error-regexp-alist 
-                  '("^[0-9]+: \\(.*\\):\\([0-9]+\\):" 1 2))))
+                  '("^[0-9]+: \\([^\\[\\]]*\\):\\([0-9]+\\): Failure" 1 2))
+     ))
 
 (global-set-key "\M-;" 'qiang-comment-dwim-line)
 (global-set-key "\C-cR" 'qiang-rename-current-file-or-buffer)
@@ -411,8 +416,24 @@
 (require 'puml-mode)
 (add-to-list 'auto-mode-alist '("\\.puml\\'" . puml-mode))
 (add-to-list 'auto-mode-alist '("\\.plantuml\\'" . puml-mode))
+
+;; C++ 11 
 (require 'modern-cpp-font-lock)
 (modern-c++-font-lock-global-mode t)
+
+;; fix C++ lambda indent level
+(defadvice c-lineup-arglist (around my activate)
+  "Improve indentation of continued C++11 lambda function opened as argument."
+  (setq ad-return-value
+        (if (and (equal major-mode 'c++-mode)
+                 (ignore-errors
+                   (save-excursion
+                     (goto-char (c-langelem-pos langelem))
+                     ;; Detect "[...](" or "[...]{". preceded by "," or "(",
+                     ;;   and with unclosed brace.
+                     (looking-at ".*[(,][ \t]*\\[[^]]*\\][ \t]*[({][^}]*$"))))
+            0                           ; no additional indent
+          ad-do-it)))                   ; default behavior
 
 ;; need install clang-format via `brew install clang-format`
 (require 'clang-format)

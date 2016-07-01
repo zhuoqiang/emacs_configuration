@@ -416,12 +416,6 @@
   "Major mode for editing comma-separated value files." t)
 
 
-;; Enable puml-mode for PlantUML files
-(setq puml-plantuml-jar-path (expand-file-name "~/bin/plantuml.jar"))
-(require 'puml-mode)
-(add-to-list 'auto-mode-alist '("\\.puml\\'" . puml-mode))
-(add-to-list 'auto-mode-alist '("\\.plantuml\\'" . puml-mode))
-
 ;; C++ 11 
 (require 'modern-cpp-font-lock)
 (modern-c++-font-lock-global-mode t)
@@ -463,6 +457,12 @@
  )
 
 
-;; magit settings
+(require 'magit)
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
+
+;; Enable puml-mode for PlantUML files, put it last since plantuml might not work
+(setq puml-plantuml-jar-path (expand-file-name "~/bin/plantuml.jar"))
+(require 'puml-mode)
+(add-to-list 'auto-mode-alist '("\\.puml\\'" . puml-mode))
+(add-to-list 'auto-mode-alist '("\\.plantuml\\'" . puml-mode))

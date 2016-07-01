@@ -55,7 +55,7 @@
   ;; (setq mac-option-modifier 'hyper) ; Option key as Hyper
   ;; (setq mac-option-modifier 'super) ; Option key as Super
   ;; (setq mac-control-modifier 'ctrl) ; Control key as Ctrl
-  (setq mac-command-modifier 'meta) ; Command key as Meta
+  ;; (setq mac-command-modifier 'meta) ; Command key as Meta
   (setq ns-pop-up-frames nil); open file in current frame
   (global-set-key (kbd "<s-wheel-up>") 'text-scale-increase)
   (global-set-key (kbd "<s-wheel-down>") 'text-scale-decrease)

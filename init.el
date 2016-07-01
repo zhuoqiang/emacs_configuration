@@ -348,8 +348,13 @@
 ;; coffeescript
 (require 'coffee-mode)
 (custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(coffee-args-compile (quote ("-c" "--bare")))
  '(coffee-tab-width 2)
- '(coffee-args-compile '("-c" "--bare")))
+ '(package-selected-packages (quote (magit))))
 
 (eval-after-load "coffee-mode"
   '(progn
@@ -440,3 +445,19 @@
 (global-set-key [C-M-tab] 'clang-format-region)
 
 (require 'cmake-mode)
+
+
+(require 'package) ;; You might already have this line
+(add-to-list 'package-archives
+             '("popkit" . "https://elpa.popkit.org/packages/"))
+(when (< emacs-major-version 24)
+  ;; For important compatibility libraries like cl-lib
+  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+(package-initialize) ;; You might already have this line
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

@@ -6,3 +6,6 @@
 \.git
 ^lisp/yasnippet/doc/
 ^lisp/yasnippet/yasmate/
+\.txt$
+\.md$
+magit/Documentation/

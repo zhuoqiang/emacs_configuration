@@ -330,24 +330,6 @@
 
 ;; coffeescript
 (require 'coffee-mode)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(coffee-args-compile (quote ("-c" "--bare")))
- '(coffee-tab-width 2)
- '(custom-safe-themes
-   (quote
-    ("aed73c6d0afcf2232bb25ed2d872c7a1c4f1bda6759f84afc24de6a1aec93da8" "50e7f9d112e821e42bd2b8410d50de966c35c7434dec12ddea99cb05dd368dd8" "b6db49cec08652adf1ff2341ce32c7303be313b0de38c621676122f255ee46db" "3a3917dbcc6571ef3942c2bf4c4240f70b5c4bc0b28192be6d3f9acd83607a24" "d1a42ed39a15a843cccadf107ee0242b5f78bfbb5b70ba3ce19f3ea9fda8f52d" default)))
- '(package-selected-packages (quote (magit))))
-
-(eval-after-load "coffee-mode"
-  '(progn
-     (define-key coffee-mode-map [(meta r)] 'coffee-compile-buffer)
-     (define-key coffee-mode-map (kbd "C-j") 'coffee-newline-and-indent)))
-
-
 (require 'handlebars-mode)
 
 (require 'quick-jump)
@@ -475,8 +457,21 @@
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
 
+;; package-install exec-path-from-shell
+(setq enable-local-eval t)
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
+
+
 ;; Enable puml-mode for PlantUML files, put it last since plantuml might not work
 (setq puml-plantuml-jar-path (expand-file-name "~/bin/plantuml.jar"))
 (require 'puml-mode)
 (add-to-list 'auto-mode-alist '("\\.puml\\'" . puml-mode))
 (add-to-list 'auto-mode-alist '("\\.plantuml\\'" . puml-mode))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+

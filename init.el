@@ -324,23 +324,6 @@
 
 (require 'ahg)
 
-(if (and (boundp 'custom-theme-load-path) t)
-    (progn
-      (add-to-list 'custom-theme-load-path (qiang-in-emacs-directory "themes"))
-      (load-theme 'tango-dark t)       
-      ;; (load-theme 'seti t) 
-      ;; (load-theme 'deeper-blue t)
-      )
-  (progn
-    (require 'color-theme)
-    (eval-after-load "color-theme"
-      (if window-system
-          '(progn
-             (color-theme-initialize)
-             (load "color-theme-blackboard")
-             (color-theme-blackboard) (color-theme-calm-forest))))))
-
-
 (require 'jinja2-mode)
 
 (setq js-indent-level 2)
@@ -354,6 +337,9 @@
  ;; If there is more than one, they won't work right.
  '(coffee-args-compile (quote ("-c" "--bare")))
  '(coffee-tab-width 2)
+ '(custom-safe-themes
+   (quote
+    ("aed73c6d0afcf2232bb25ed2d872c7a1c4f1bda6759f84afc24de6a1aec93da8" "50e7f9d112e821e42bd2b8410d50de966c35c7434dec12ddea99cb05dd368dd8" "b6db49cec08652adf1ff2341ce32c7303be313b0de38c621676122f255ee46db" "3a3917dbcc6571ef3942c2bf4c4240f70b5c4bc0b28192be6d3f9acd83607a24" "d1a42ed39a15a843cccadf107ee0242b5f78bfbb5b70ba3ce19f3ea9fda8f52d" default)))
  '(package-selected-packages (quote (magit))))
 
 (eval-after-load "coffee-mode"
@@ -442,21 +428,49 @@
 
 
 (require 'package) ;; You might already have this line
+
+;;;; use mirrorfor speedup
+
+;; (add-to-list 'package-archives
+;;              '("popkit" . "https://elpa.popkit.org/packages/"))
+;; (add-to-list 'package-archives
+;;              '("melpa" . "https://melpa.org/packages/"))
+;; (when (< emacs-major-version 24)
+;;   ;; For important compatibility libraries like cl-lib
+;;   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+
 (add-to-list 'package-archives
              '("popkit" . "https://elpa.popkit.org/packages/"))
+(add-to-list 'package-archives
+             '("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa-stable/"))
 (when (< emacs-major-version 24)
   ;; For important compatibility libraries like cl-lib
-  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+  (add-to-list 'package-archives '("gnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
 (package-initialize) ;; You might already have this line
 
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+;; (if (and (boundp 'custom-theme-load-path) t)
+;;     (progn
+;;       (add-to-list 'custom-theme-load-path (qiang-in-emacs-directory "themes"))
+;;       (load-theme 'base16-tomorrow-dark t)
+;;       ;; (load-theme 'base16-solarized-dark t)
+;;       ;; (load-theme 'base16-ocean-dark t)         
+;;       ;; (load-theme 'tango-dark t)       
+;;       ;; (load-theme 'seti t) 
+;;       ;; (load-theme 'deeper-blue t)
+;;       )
+;;   (progn
+;;     (require 'color-theme)
+;;     (eval-after-load "color-theme"
+;;       (if window-system
+;;           '(progn
+;;              (color-theme-initialize)
+;;              (load "color-theme-blackboard")
+;;              (color-theme-blackboard) (color-theme-calm-forest))))))
 
+;; package-install base16-theme
+(load-theme 'base16-tomorrow-dark t)
 
+;; package-install magit
 (require 'magit)
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)

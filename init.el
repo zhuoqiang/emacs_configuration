@@ -408,9 +408,12 @@
 
 (require 'cmake-mode)
 
+(setq enable-local-eval t)
+
+(require 'capnp-mode)
+(add-to-list 'auto-mode-alist '("\\.capnp\\'" . capnp-mode))
 
 (require 'package) ;; You might already have this line
-
 ;;;; use mirrorfor speedup
 
 ;; (add-to-list 'package-archives
@@ -430,27 +433,27 @@
   (add-to-list 'package-archives '("gnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
 (package-initialize) ;; You might already have this line
 
-;; (if (and (boundp 'custom-theme-load-path) t)
-;;     (progn
-;;       (add-to-list 'custom-theme-load-path (qiang-in-emacs-directory "themes"))
-;;       (load-theme 'base16-tomorrow-dark t)
-;;       ;; (load-theme 'base16-solarized-dark t)
-;;       ;; (load-theme 'base16-ocean-dark t)         
-;;       ;; (load-theme 'tango-dark t)       
-;;       ;; (load-theme 'seti t) 
-;;       ;; (load-theme 'deeper-blue t)
-;;       )
-;;   (progn
-;;     (require 'color-theme)
-;;     (eval-after-load "color-theme"
-;;       (if window-system
-;;           '(progn
-;;              (color-theme-initialize)
-;;              (load "color-theme-blackboard")
-;;              (color-theme-blackboard) (color-theme-calm-forest))))))
+(if (and (boundp 'custom-theme-load-path) t)
+    (progn
+      (add-to-list 'custom-theme-load-path (qiang-in-emacs-directory "themes"))
+      (load-theme 'base16-tomorrow-dark t)
+      ;; (load-theme 'base16-solarized-dark t)
+      ;; (load-theme 'base16-ocean-dark t)         
+      (load-theme 'tango-dark t)       
+      ;; (load-theme 'seti t) 
+      ;; (load-theme 'deeper-blue t)
+      )
+  (progn
+    (require 'color-theme)
+    (eval-after-load "color-theme"
+      (if window-system
+          '(progn
+             (color-theme-initialize)
+             (load "color-theme-blackboard")
+             (color-theme-blackboard) (color-theme-calm-forest))))))
 
 ;; package-install base16-theme
-(load-theme 'base16-tomorrow-dark t)
+;; (load-theme 'base16-tomorrow-dark t)
 
 ;; package-install magit
 (require 'magit)
@@ -458,7 +461,6 @@
 (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
 
 ;; package-install exec-path-from-shell
-(setq enable-local-eval t)
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
 
@@ -474,4 +476,3 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-

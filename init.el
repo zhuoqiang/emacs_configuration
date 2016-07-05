@@ -436,7 +436,7 @@
 (if (and (boundp 'custom-theme-load-path) t)
     (progn
       (add-to-list 'custom-theme-load-path (qiang-in-emacs-directory "themes"))
-      (load-theme 'base16-tomorrow-dark t)
+      ;; (load-theme 'base16-tomorrow-dark t)
       ;; (load-theme 'base16-solarized-dark t)
       ;; (load-theme 'base16-ocean-dark t)         
       (load-theme 'tango-dark t)       

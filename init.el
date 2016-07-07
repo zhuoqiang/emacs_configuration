@@ -49,6 +49,8 @@
 (global-set-key (kbd "<C-wheel-up>") 'text-scale-increase)
 (global-set-key (kbd "<C-wheel-down>") 'text-scale-decrease)
 
+(global-set-key (kbd "C-x C-o") 'ff-find-other-file)
+
 (setq delete-by-moving-to-trash t)
 (when (eq system-type 'darwin)
   (setq trash-directory "~/.Trash/emacs")
@@ -415,7 +417,6 @@
 
 (require 'package) ;; You might already have this line
 ;;;; use mirrorfor speedup
-
 ;; (add-to-list 'package-archives
 ;;              '("popkit" . "https://elpa.popkit.org/packages/"))
 ;; (add-to-list 'package-archives
@@ -424,13 +425,13 @@
 ;;   ;; For important compatibility libraries like cl-lib
 ;;   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 
-(add-to-list 'package-archives
-             '("popkit" . "https://elpa.popkit.org/packages/"))
-(add-to-list 'package-archives
-             '("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa-stable/"))
-(when (< emacs-major-version 24)
-  ;; For important compatibility libraries like cl-lib
-  (add-to-list 'package-archives '("gnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
+;; (add-to-list 'package-archives
+;;              '("popkit" . "https://elpa.popkit.org/packages/"))
+;; (add-to-list 'package-archives
+;;              '("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa-stable/"))
+;; (when (< emacs-major-version 24)
+;;   ;; For important compatibility libraries like cl-lib
+;;   (add-to-list 'package-archives '("gnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
 (package-initialize) ;; You might already have this line
 
 (if (and (boundp 'custom-theme-load-path) t)
@@ -461,8 +462,8 @@
 (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
 
 ;; package-install exec-path-from-shell
-(when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize))
+;; (when (memq window-system '(mac ns))
+;;   (exec-path-from-shell-initialize))
 
 
 ;; Enable puml-mode for PlantUML files, put it last since plantuml might not work

@@ -110,7 +110,15 @@
 (setq desktop-path `(,user-emacs-directory))
 (setq desktop-restore-eager 5)
 
-(if (functionp 'electric-pair-mode) (electric-pair-mode 1))
+(electric-pair-mode 1)
+(setq electric-pair-pairs (append electric-pair-pairs '((?` . ?`))))
+
+;; (defvar markdown-electric-pairs '((?* . ?*) (?` . ?`)) "Electric pairs for markdown-mode.")
+;; (defun markdown-add-electric-pairs ()
+;;   (setq-local electric-pair-pairs (append electric-pair-pairs markdown-electric-pairs))
+;;   (setq-local electric-pair-text-pairs electric-pair-pairs))
+;; (add-hook 'markdown-mode-hook 'markdown-add-electric-pairs)
+
 
 (setq ido-save-directory-list-file (qiang-in-emacs-directory "ido.last"))
 (setq ido-enable-flex-matching t)
@@ -303,8 +311,8 @@
 ;; Markdown Mode
 (autoload 'markdown-mode "markdown-mode"
   "Major mode for editing Markdown files" t)
-(setq auto-mode-alist
-      (cons '("\\.md$" . markdown-mode) auto-mode-alist))
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . gfm-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . gfm-mode))
 
 
 ;; SCSS mode

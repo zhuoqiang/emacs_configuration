@@ -424,22 +424,22 @@
 (add-to-list 'auto-mode-alist '("\\.capnp\\'" . capnp-mode))
 
 (require 'package) ;; You might already have this line
-;;;; use mirrorfor speedup
-;; (add-to-list 'package-archives
-;;              '("popkit" . "https://elpa.popkit.org/packages/"))
-;; (add-to-list 'package-archives
-;;              '("melpa" . "https://melpa.org/packages/"))
-;; (when (< emacs-major-version 24)
-;;   ;; For important compatibility libraries like cl-lib
-;;   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+;; use mirrorfor speedup
+(add-to-list 'package-archives
+             '("popkit" . "https://elpa.popkit.org/packages/"))
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/"))
+(when (< emacs-major-version 24)
+  ;; For important compatibility libraries like cl-lib
+  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 
-;; (add-to-list 'package-archives
-;;              '("popkit" . "https://elpa.popkit.org/packages/"))
-;; (add-to-list 'package-archives
-;;              '("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa-stable/"))
-;; (when (< emacs-major-version 24)
-;;   ;; For important compatibility libraries like cl-lib
-;;   (add-to-list 'package-archives '("gnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
+(add-to-list 'package-archives
+             '("popkit" . "https://elpa.popkit.org/packages/"))
+(add-to-list 'package-archives
+             '("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa-stable/"))
+(when (< emacs-major-version 24)
+  ;; For important compatibility libraries like cl-lib
+  (add-to-list 'package-archives '("gnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
 (package-initialize) ;; You might already have this line
 
 (if (and (boundp 'custom-theme-load-path) t)

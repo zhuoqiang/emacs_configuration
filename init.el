@@ -7,11 +7,41 @@
 
 ;; Change default encoding to UTF-8 for Emacs Python Shell
 
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
+;; ======================================================================
+;; Package Setting
+;; ======================================================================
+(load-library "url-handlers")
+(require 'package)
+(setq package-archives  
+       '(("gnu"          . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+         ("melpa"        . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+         ("melpa-stable" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa-stable/")
+         ("org"          . "https://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
+         ("marmalade"    . "https://mirrors.tuna.tsinghua.edu.cn/elpa/marmalade/"))) 
+
 (package-initialize)
+
+(when (not package-archive-contents)
+  (package-refresh-contents))
+
+(defvar myPackages
+  '(magit
+    ein
+    elpy
+    flycheck
+    material-theme
+    py-autopep8))
+
+;; ======================================================================
+
+;; (mapc #'(lambda (package)
+;;           (unless (package-installed-p package)
+;;             (package-install package)))
+;;       myPackages)
+
+;; (load-theme 'material t) ;; load material theme
+
+(global-linum-mode t) ;; enable line numbers globally
 
 (setenv "LC_CTYPE" "UTF-8")
 (setenv "LANG" "zh_CN.UTF8")
@@ -37,11 +67,9 @@
 
 (qiang-set-font
  '("Monaco" "Consolas" "DejaVu Sans Mono" "Monospace" "Courier New")
- '("Microsoft Yahei" "STHeiti" "hei" "文泉驿等宽微米黑" "新宋体" "宋体") 16)
+ '("Microsoft Yahei" "STHeiti" "hei" "文泉驿等宽微米黑" "新宋体" "宋体") 18)
 
-;; (set-face-attribute 'default nil :height 100)
-
-(setq text-scale-mode-step 1.1)
+14(setq text-scale-mode-step 1.1)
 ;; For Linux
 (global-set-key (kbd "<C-mouse-4>") 'text-scale-increase)
 (global-set-key (kbd "<C-mouse-5>") 'text-scale-decrease)
@@ -135,6 +163,7 @@
 (setq bookmark-save-flag 1)
 (setq kill-whole-line t)
 
+(global-set-key (kbd "C-S-s") 'grep-find)
 (global-set-key [(meta g)] 'goto-line)
 (global-set-key [(f5)] 'compile)
 (global-set-key (kbd "<C-f5>") 'revert-buffer)
@@ -272,8 +301,20 @@
             auto-mode-alist))
 
 (require 'cython-mode)
-
 (require 'virtualenv)
+
+(elpy-enable)
+(elpy-use-ipython)
+
+;; use flycheck not flymake with elpy
+(when (require 'flycheck nil t)
+  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+  (add-hook 'elpy-mode-hook 'flycheck-mode))
+
+;; enable autopep8 formatting on save
+(require 'py-autopep8)
+(add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
+
 
 ;; Lua Mode
 (autoload 'lua-mode "lua-mode" "Lua editing mode." t)
@@ -423,48 +464,28 @@
 (require 'capnp-mode)
 (add-to-list 'auto-mode-alist '("\\.capnp\\'" . capnp-mode))
 
-(require 'package) ;; You might already have this line
-;; use mirrorfor speedup
-(add-to-list 'package-archives
-             '("popkit" . "https://elpa.popkit.org/packages/"))
-(add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/"))
-(when (< emacs-major-version 24)
-  ;; For important compatibility libraries like cl-lib
-  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
-
-(add-to-list 'package-archives
-             '("popkit" . "https://elpa.popkit.org/packages/"))
-(add-to-list 'package-archives
-             '("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa-stable/"))
-(when (< emacs-major-version 24)
-  ;; For important compatibility libraries like cl-lib
-  (add-to-list 'package-archives '("gnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
-(package-initialize) ;; You might already have this line
-
-(if (and (boundp 'custom-theme-load-path) t)
-    (progn
-      (add-to-list 'custom-theme-load-path (qiang-in-emacs-directory "themes"))
-      ;; (load-theme 'base16-tomorrow-dark t)
-      ;; (load-theme 'base16-solarized-dark t)
-      ;; (load-theme 'base16-ocean-dark t)         
-      (load-theme 'tango-dark t)       
-      ;; (load-theme 'seti t) 
-      ;; (load-theme 'deeper-blue t)
-      )
-  (progn
-    (require 'color-theme)
-    (eval-after-load "color-theme"
-      (if window-system
-          '(progn
-             (color-theme-initialize)
-             (load "color-theme-blackboard")
-             (color-theme-blackboard) (color-theme-calm-forest))))))
+;; (if (and (boundp 'custom-theme-load-path) t)
+;;     (progn
+;;       (add-to-list 'custom-theme-load-path (qiang-in-emacs-directory "themes"))
+;;       ;; (load-theme 'base16-tomorrow-dark t)
+;;       ;; (load-theme 'base16-solarized-dark t)
+;;       ;; (load-theme 'base16-ocean-dark t)         
+;;       (load-theme 'tango-dark t)       
+;;       ;; (load-theme 'seti t) 
+;;       ;; (load-theme 'deeper-blue t)
+;;       )
+;;   (progn
+;;     (require 'color-theme)
+;;     (eval-after-load "color-theme"
+;;       (if window-system
+;;           '(progn
+;;              (color-theme-initialize)
+;;              (load "color-theme-blackboard")
+;;              (color-theme-blackboard) (color-theme-calm-forest))))))
 
 ;; package-install base16-theme
 ;; (load-theme 'base16-tomorrow-dark t)
 
-;; package-install magit
 (require 'magit)
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)

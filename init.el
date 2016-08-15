@@ -2,6 +2,11 @@
 ;; -----------------------------------------------------------------------------
 ;; ZHUO Qiang's Emacs Configuration 
 ;; -----------------------------------------------------------------------------
+;; use following comand to remove old compiled el file
+;; 
+;; cd ~/.emacs.d/
+;; find . -name '*.elc' | xargs rm
+
 
 ;; (setq debug-on-error t)
 
@@ -13,8 +18,8 @@
 (load-library "url-handlers")
 (require 'package)
 
-(setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-                         ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
+;; (setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+;;                          ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
 
 ;; (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
 ;;                          ("marmalade" . "https://marmalade-repo.org/packages/")

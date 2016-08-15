@@ -12,36 +12,39 @@
 ;; ======================================================================
 (load-library "url-handlers")
 (require 'package)
-(setq package-archives  
-       '(("gnu"          . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-         ("melpa"        . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
-         ("melpa-stable" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa-stable/")
-         ("org"          . "https://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
-         ("marmalade"    . "https://mirrors.tuna.tsinghua.edu.cn/elpa/marmalade/"))) 
+
+(setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+                         ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
+
+;; (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
+;;                          ("marmalade" . "https://marmalade-repo.org/packages/")
+;;                          ("melpa" . "https://melpa.org/packages/")))
+
+;; (setq package-archives '(("gnu"   . "http://elpa.zilongshanren.com/gnu/")
+;;                          ("melpa" . "http://elpa.zilongshanren.com/melpa/")))
 
 (package-initialize)
 
-(when (not package-archive-contents)
-  (package-refresh-contents))
+;; (when (not package-archive-contents)
+;;   (package-refresh-contents))
 
-(defvar myPackages
-  '(magit
-    ein
-    elpy
-    flycheck
-    material-theme
-    py-autopep8))
+;; (defvar myPackages
+;;   '(
+;;     ;; magit			       
+;;     ;; ein				       
+;;     ;; elpy
+;;     ;; flycheck
+;;     ;; py-autopep8
+;;     ))
 
-;; ======================================================================
+;; ;; ======================================================================
 
 ;; (mapc #'(lambda (package)
 ;;           (unless (package-installed-p package)
 ;;             (package-install package)))
 ;;       myPackages)
 
-;; (load-theme 'material t) ;; load material theme
-
-(global-linum-mode t) ;; enable line numbers globally
+(load-theme 'tango-dark t)
 
 (setenv "LC_CTYPE" "UTF-8")
 (setenv "LANG" "zh_CN.UTF8")
@@ -67,7 +70,7 @@
 
 (qiang-set-font
  '("Monaco" "Consolas" "DejaVu Sans Mono" "Monospace" "Courier New")
- '("Microsoft Yahei" "STHeiti" "hei" "文泉驿等宽微米黑" "新宋体" "宋体") 18)
+ '("Microsoft Yahei" "STHeiti" "hei" "文泉驿等宽微米黑" "新宋体" "宋体") 16)
 
 14(setq text-scale-mode-step 1.1)
 ;; For Linux
@@ -303,17 +306,17 @@
 (require 'cython-mode)
 (require 'virtualenv)
 
-(elpy-enable)
-(elpy-use-ipython)
+;; (elpy-enable)
+;; (elpy-use-ipython)
 
-;; use flycheck not flymake with elpy
-(when (require 'flycheck nil t)
-  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
-  (add-hook 'elpy-mode-hook 'flycheck-mode))
+;; ;; use flycheck not flymake with elpy
+;; (when (require 'flycheck nil t)
+;;   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+;;   (add-hook 'elpy-mode-hook 'flycheck-mode))
 
-;; enable autopep8 formatting on save
-(require 'py-autopep8)
-(add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
+;; ;; enable autopep8 formatting on save
+;; (require 'py-autopep8)
+;; (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
 
 
 ;; Lua Mode
@@ -464,28 +467,6 @@
 (require 'capnp-mode)
 (add-to-list 'auto-mode-alist '("\\.capnp\\'" . capnp-mode))
 
-;; (if (and (boundp 'custom-theme-load-path) t)
-;;     (progn
-;;       (add-to-list 'custom-theme-load-path (qiang-in-emacs-directory "themes"))
-;;       ;; (load-theme 'base16-tomorrow-dark t)
-;;       ;; (load-theme 'base16-solarized-dark t)
-;;       ;; (load-theme 'base16-ocean-dark t)         
-;;       (load-theme 'tango-dark t)       
-;;       ;; (load-theme 'seti t) 
-;;       ;; (load-theme 'deeper-blue t)
-;;       )
-;;   (progn
-;;     (require 'color-theme)
-;;     (eval-after-load "color-theme"
-;;       (if window-system
-;;           '(progn
-;;              (color-theme-initialize)
-;;              (load "color-theme-blackboard")
-;;              (color-theme-blackboard) (color-theme-calm-forest))))))
-
-;; package-install base16-theme
-;; (load-theme 'base16-tomorrow-dark t)
-
 (require 'magit)
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
@@ -500,9 +481,3 @@
 (require 'puml-mode)
 (add-to-list 'auto-mode-alist '("\\.puml\\'" . puml-mode))
 (add-to-list 'auto-mode-alist '("\\.plantuml\\'" . puml-mode))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )

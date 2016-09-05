@@ -75,9 +75,9 @@
 
 (qiang-set-font
  '("Monaco" "Consolas" "DejaVu Sans Mono" "Monospace" "Courier New")
- '("Microsoft Yahei" "STHeiti" "hei" "文泉驿等宽微米黑" "新宋体" "宋体") 16)
+ '("Microsoft Yahei" "STHeiti" "hei" "文泉驿等宽微米黑" "新宋体" "宋体") 12)
 
-14(setq text-scale-mode-step 1.1)
+(setq text-scale-mode-step 1.1)
 ;; For Linux
 (global-set-key (kbd "<C-mouse-4>") 'text-scale-increase)
 (global-set-key (kbd "<C-mouse-5>") 'text-scale-decrease)
@@ -251,6 +251,37 @@
 (define-key emacs-lisp-mode-map [(f5)] 'eval-buffer)
 
 ;; CC Mode
+
+;----------------------------------------------
+; fix enum class support
+;----------------------------------------------
+(defun inside-class-enum-p (pos)
+  "Checks if POS is within the braces of a C++ \"enum class\"."
+  (ignore-errors
+    (save-excursion
+      (goto-char pos)
+      (up-list -1)
+      (backward-sexp 1)
+      (looking-back "enum[ \t]+class[ \t]+[^}]+"))))
+
+(defun align-enum-class (langelem)
+  (if (inside-class-enum-p (c-langelem-pos langelem))
+      0
+    (c-lineup-topmost-intro-cont langelem)))
+
+(defun align-enum-class-closing-brace (langelem)
+  (if (inside-class-enum-p (c-langelem-pos langelem))
+      '-
+    '+))
+
+(defun fix-enum-class ()
+  "Setup `c++-mode' to better handle \"class enum\"."
+  (add-to-list 'c-offsets-alist '(topmost-intro-cont . align-enum-class))
+  (add-to-list 'c-offsets-alist
+               '(statement-cont . align-enum-class-closing-brace)))
+
+(add-hook 'c++-mode-hook 'fix-enum-class)
+;-----------------------------------------------
 
 (require 'google-c-style)
 (add-hook 'c-mode-common-hook 'google-set-c-style)
